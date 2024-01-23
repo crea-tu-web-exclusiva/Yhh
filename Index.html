@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/index.css">
+  <script src="js/index.js"></script>
+  <title>Chat_IA</title>
+</head>
+<style>
+body{
+  
+  padding: 0px;
+  margin: 0px;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background: linear-gradient(200deg,cyan,#fff,cyan);
+}
+
+  .input-mensaje{
+    height: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    outline: none;
+    width: 200px;
+  }
+ .input-mensaje::placeholder {
+   text-align: center;
+ }
+ .containermensajes {
+   width: 352px;
+   padding: 4px;
+   height: 510px;
+   background: rgba(114,114,114,0.3);
+   backdrop-filter: blur(10px);
+   display: block;
+   overflow-y: auto;
+ }
+ .titulo{
+   padding: 3px;
+   margin: 0px auto;
+   text-align: center;
+   background: rgba(114,114,114,0.3);
+   backdrop-filter: blur(10px);
+   box-shadow: 1px 1px 10px;
+ }
+ .container-int {
+   text-align: center;
+   background: rgba(114,114,114,0.3);
+   backdrop-filter: blur(10px);
+   padding: 4px;
+   box-shadow: -1px -1px 10px;
+   
+ }
+ .mensaje_usuario {
+   background: #182;
+   padding: 5px;
+   margin: 7px;
+   transition: 1s;
+   animation:  mensaje-user 1s ;
+   word-wrap: break-word;
+   border-radius: 10px;
+ }
+ .mensaje_IA {
+   background:#f2f2f2 ;
+   padding: 5px;
+   margin: 3px;
+   transition: 1s;
+   animation:  mensaje-IA 2s ;
+   word-wrap: break-word;
+   border-radius: 10px;
+ }
+ @keyframes mensaje-user {
+   0%{
+     transform: scale(0);
+   }
+   100%{
+     transform: scale(1);
+   }
+ }
+ @keyframes mensaje-IA {
+   0%{
+     transform: scale(0);
+   }
+   100%{
+     transform: scale(1);
+   }
+ }
+</style>
+<body>
+<helader class="container-chat">
+  	<h1 class="titulo">Chat_IA</h1>
+  	<div class="containermensajes" id="mensajes">
+  	  
+  	</div>
+<div class="container-int">
+  	<textarea class="input-mensaje"placeholder="CHAT IA"id="user_text"></textarea><a href="#" onclick="IA()" >click aqui</a>
+</div>
+<script>
+  //conexiones 
+let body = document.getElementById("mensajes")
+const IA = () => {
+  let mensaje_user = document.getElementById("user_text").value.trim();
+  if (mensaje_user === "") {
+    console.error("El usuario no ha escrito nada aún");
+  } else {
+    respuesta_IA(mensaje_user);
+    document.getElementById("user_text").value = ""
+  }
+};
+
+function respuesta_IA(mensajeint) {
+let body = document.getElementById("mensajes")
+let mensaje_usuario = document.createElement("p")
+let mensaje_IA = document.createElement("p")
+mensaje_IA.classList.add("mensaje_IA")
+mensaje_usuario.classList.add("mensaje_usuario")
+mensaje_IA.textContent = "hola buenas noces"
+mensaje_usuario.textContent = mensajeint
+body.appendChild(mensaje_usuario)
+
+if(mensajeint == "hola"){
+mensaje_IA.textContent = "hola buenas noces"
+body.appendChild(mensaje_IA)
+} else {
+  mensaje_IA.textContent = "elias"
+body.appendChild(mensaje_IA)
+}
+}
+
+
+</script>
+</body>
+
+
+
+</html>
